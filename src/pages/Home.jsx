@@ -4,7 +4,7 @@ import BackgroundImage from "../components/MainBackground";
 import Hero from "../components/Hero";
 import Gallery from "../components/Gallery";
 import Footer from "../components/Footer";
-import Cards from "../components/cards";
+import Cards from "../components/Cards";
 
 function Home() {
   return (
