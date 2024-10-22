@@ -1,11 +1,10 @@
 // import Header from "../components/Header";
 // import { Button } from "antd/es/radio";
 import BackgroundImage from "../components/MainBackground";
-import Cards from "../components/cards";
 import Hero from "../components/Hero";
-import { Button } from "antd";
 import Gallery from "../components/Gallery";
 import Footer from "../components/Footer";
+import Cards from "../components/cards";
 
 function Home() {
   return (
@@ -25,7 +24,7 @@ function Home() {
       <h1 className="font-bold text-center text-5xl text-gray-700	">
         Our Products
       </h1>
-      <Cards />
+       <Cards/>
       <div>
         <div className="font-bold text-center text-md text-gray-400">
           Share Your setup with

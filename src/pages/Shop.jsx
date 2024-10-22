@@ -1,12 +1,13 @@
 import Benefits from "../components/Benefit";
-import Filter from "../components/filter";
+import Filter from "../components/Filter";
 import Footer from "../components/Footer";
 import backgroundImage from "../assets/pics/Rectangle 1.jpg";
-import Productvip from "../components/Products";
+import Productvip from "../components/Products"; // Assuming this is the product display component
 
 function Shop() {
   return (
     <div>
+      {/* Hero Section with Background Image and Title */}
       <div className="relative text-center">
         <div className="relative">
           <img
@@ -21,10 +22,23 @@ function Shop() {
         </div>
       </div>
 
-      <Filter/>
-      <Productvip />
-      <Benefits/> 
-      <Footer/>
+      {/* Filter Component for Sorting and Filtering Products */}
+      <div className="container mx-auto py-6">
+        <Filter />
+      </div>
+
+      {/* Product Listing Section */}
+      <div className="container mx-auto py-6">
+        <Productvip />
+      </div>
+
+      {/* Benefits Section */}
+      <div className="container mx-auto py-6">
+        <Benefits />
+      </div>
+
+      {/* Footer Section */}
+      <Footer />
     </div>
   );
 }

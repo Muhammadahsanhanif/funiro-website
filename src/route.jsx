@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Header from "./components/Header";
-import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Productcomparison from "./pages/ProductComparison";
 import LoginForm from "./pages/Login";
@@ -13,6 +12,7 @@ import CheckoutPage from "./pages/Checkout";
 import AdminPage from "./pages/adminpanel";
 import ToShip from "./pages/toship";
 import Shop from "./pages/Shop";
+import About from "./pages/About";
 
 
 function AppRouter(){
@@ -25,9 +25,9 @@ function AppRouter(){
             <Route path="/" element={<Home />} />
             <Route path="/Login" element={<LoginForm />} />
             <Route path="/Signup" element={<SignUp />} />
-            <Route path="About" element={<About />}/>
             <Route path="Contact" element={<Contact />}/>
             <Route path="/shop" element={<Shop/>}/>
+            <Route path="/about" element={<About/>} />
             <Route path="Cart" element={<Cart />}/>
             <Route path="Wishlist" element={<Wishlist />}/>
             <Route path="Product/:id" element={<ProductDetails />}/>

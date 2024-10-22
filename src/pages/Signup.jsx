@@ -66,7 +66,7 @@ function SignUp() {
   }
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-purple-600 to-blue-500 p-6">
+    <div className="relative flex flex-col items-center justify-center min-h-screen p-6">
       {/* Wavy background */}
       <div className="absolute inset-0">
         <svg
@@ -82,7 +82,7 @@ function SignUp() {
         </svg>
       </div>
 
-      <h1 className="relative text-5xl font-extrabold text-white drop-shadow-lg mb-8 z-10 ">
+      <h1 className="relative text-5xl font-extrabold text-teal-600 drop-shadow-lg mb-8 z-10">
         Create an Account
       </h1>
 
@@ -92,14 +92,14 @@ function SignUp() {
             type="text"
             placeholder="Username"
             required
-            className="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-500 transition-transform transform duration-300 ease-in-out hover:scale-105 shadow-md"
+            className="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-teal-500 transition-transform transform duration-300 ease-in-out hover:scale-105 shadow-md"
           />
           <input
             value={email}
             type="email"
             placeholder="Email"
             required
-            className="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-500 transition-transform transform duration-300 ease-in-out hover:scale-105 shadow-md"
+            className="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-teal-500 transition-transform transform duration-300 ease-in-out hover:scale-105 shadow-md"
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
@@ -107,12 +107,12 @@ function SignUp() {
             type="password"
             placeholder="Password"
             required
-            className="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-500 transition-transform transform duration-300 ease-in-out hover:scale-105 shadow-md"
+            className="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-teal-500 transition-transform transform duration-300 ease-in-out hover:scale-105 shadow-md"
             onChange={(e) => setPassword(e.target.value)}
           />
           <button
             type="submit"
-            className="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg"
+            className="bg-teal-500 text-white p-4 rounded-lg hover:bg-teal-600 transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg"
           >
             Sign Up
           </button>

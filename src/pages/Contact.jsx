@@ -5,7 +5,6 @@ import { collection, addDoc } from "firebase/firestore";
 import backgroundImage from "../assets/pics/Rectangle 1.jpg";
 import Footer from "../components/Footer";
 
-
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -31,7 +30,7 @@ const Contact = () => {
 
   return (
     <>
-       <div className="relative text-center">
+      <div className="relative text-center">
         <div className="relative">
           <img
             className="w-full h-[50vh] object-cover object-center"
@@ -39,14 +38,17 @@ const Contact = () => {
             alt="Scandinavian interior mockup wall decal background"
           />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-black">
-            <h1 className="text-4xl font-bold">Contact</h1>
+            <h1 className="text-4xl font-bold ">Contact</h1>
             <span className="text-lg mb-2">Home &gt; Contact</span>
           </div>
         </div>
-      </div><br /><br /><br /> 
+      </div>
+      <br />
+      <br />
+      <br />
       <div>
-        <h1 className="text-3xl font-bold text-center mb-4">Get In Touch With Us</h1>
-        <p className="text-center mb-6">
+        <h1 className="text-3xl font-bold text-center mb-4 text-teal-500">Get In Touch With Us</h1>
+        <p className="text-center mb-6 text-teal-500">
           For more information about our product & services. Please feel free to
           drop us <br /> an email. Our staff always be there to help you out. Do
           not hesitate!
@@ -55,19 +57,19 @@ const Contact = () => {
       <div className="flex justify-between p-8">
         <div className="w-1/2 pl-8">
           <div className="p-4 rounded">
-            <h2 className="text-xl font-bold mb-2">
+            <h2 className="text-xl font-bold mb-2 text-teal-500">
               <FaMapMarkedAlt className="mr-2" />
               Address
             </h2>
             <p className="mb-4">236 5th Avenue, New York, NY 10001</p>
 
-            <h2 className="text-xl font-bold mb-2">
+            <h2 className="text-xl font-bold mb-2 text-teal-500">
               <FaPhone className="mr-2" />
               Phone
             </h2>
             <p className="mb-4">Mobile: (84) 546-6789</p>
 
-            <h2 className="text-xl font-bold mb-2">
+            <h2 className="text-xl font-bold mb-2 text-teal-500">
               <FaClock /> Working Hours
             </h2>
             <p>Monday - Friday: 9am - 5pm</p>
@@ -79,7 +81,7 @@ const Contact = () => {
         <div className="w-1/2 pr-8">
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="name" className="block mb-1">
+              <label htmlFor="name" className="block mb-1 text-teal-500">
                 Your name:
               </label>
               <input
@@ -88,12 +90,12 @@ const Contact = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
-                className="w-full p-2 border border-gray-300 rounded"
+                className="w-full p-2 border border-teal-500 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block mb-1">
+              <label htmlFor="email" className="block mb-1 text-teal-500">
                 Email address:
               </label>
               <input
@@ -102,12 +104,12 @@ const Contact = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full p-2 border border-gray-300 rounded"
+                className="w-full p-2 border border-teal-500 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
               />
             </div>
 
             <div>
-              <label htmlFor="subject" className="block mb-1">
+              <label htmlFor="subject" className="block mb-1 text-teal-500">
                 Subject:
               </label>
               <input
@@ -115,32 +117,32 @@ const Contact = () => {
                 id="subject"
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded"
+                className="w-full p-2 border border-teal-500 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block mb-1">
+              <label htmlFor="message" className="block mb-1 text-teal-500">
                 Message:
               </label>
               <textarea
                 id="message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded"
+                className="w-full p-2 border border-teal-500 rounded focus:outline-none focus:ring-2 focus:ring-teal-500"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full py-2 mt-4 bg-teal-500 text-white rounded"
+              className="w-full py-2 mt-4 bg-teal-500 text-white rounded hover:bg-teal-600 transition duration-300"
             >
               Submit
             </button>
           </form>
         </div>
       </div>
-      <Footer/>     
+      <Footer />
     </>
   );
 };

@@ -75,13 +75,13 @@ function Header() {
             <Link to="/" className="hover:text-gray-900">
               Home
             </Link>
-            <Link to="/shop" className="hover:text-gray-900">
+            <Link to="/shop" className="hover:text-teal-500">
               Shop
             </Link>
-            <Link to="/about" className="hover:text-gray-900">
+            <Link to="/about" className="hover:text-teal-500">
               About
             </Link>
-            <Link to="/contact" className="hover:text-gray-900">
+            <Link to="/contact" className="hover:text-teal-500">
               Contact
             </Link>
           </nav>
@@ -89,14 +89,14 @@ function Header() {
           <div className="flex space-x-4 mt-4 md:mt-0">
             {!isLoggedIn ? (
               <>
-                <Link to="/login" className="hover:text-gray-900">
+                <Link to="/login" className="hover:text-teal-500">
                   <Button
                     style={{ backgroundColor: "#3B82F6", color: "white" }}
                   >
                     Login
                   </Button>
                 </Link>
-                <Link to="/signup" className="hover:text-gray-900">
+                <Link to="/signup" className="hover:text-teal-500">
                   <Button
                     style={{ backgroundColor: "#1E40AF", color: "white" }}
                   >

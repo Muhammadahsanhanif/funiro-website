@@ -58,7 +58,7 @@ function LoginForm() {
   }
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-400 to-purple-600 p-6">
+    <div className="relative flex flex-col items-center justify-center min-h-screen p-6">
       {/* Wavy background */}
       <div className="absolute inset-0">
         <svg
@@ -74,7 +74,7 @@ function LoginForm() {
         </svg>
       </div>
 
-      <h1 className="text-5xl font-extrabold text-center mb-8 text-white drop-shadow-lg ">
+      <h1 className="text-5xl font-extrabold text-center mb-8 text-teal-500 drop-shadow-lg">
         LOGIN!
       </h1>
       <div className="relative bg-white p-10 rounded-xl shadow-2xl w-full max-w-lg z-10 animate-slide-up transform transition-transform duration-500 ease-out">
@@ -84,7 +84,7 @@ function LoginForm() {
             type="email"
             placeholder="Enter your email"
             required
-            className="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-500 transition-transform transform duration-300 ease-in-out hover:scale-105 shadow-md"
+            className="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-teal-500 transition-transform transform duration-300 ease-in-out hover:scale-105 shadow-md"
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
@@ -92,12 +92,12 @@ function LoginForm() {
             type="password"
             placeholder="Enter your password"
             required
-            className="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-500 transition-transform transform duration-300 ease-in-out hover:scale-105 shadow-md"
+            className="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-teal-500 transition-transform transform duration-300 ease-in-out hover:scale-105 shadow-md"
             onChange={(e) => setPassword(e.target.value)}
           />
           <button
             type="submit"
-            className="bg-gradient-to-r from-blue-500 to-purple-600 text-white p-4 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg"
+            className="bg-teal-500 text-white p-4 rounded-lg hover:bg-teal-600 transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg"
           >
             Log In
           </button>

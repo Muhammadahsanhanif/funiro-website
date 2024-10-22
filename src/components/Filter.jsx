@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function Filter() {
-  const [showCount, setShowCount] = useState(16);
-  const [sortOption, setSortOption] = useState('Default');
-
+function Filter({ showCount, setShowCount, sortOption, setSortOption }) {
   return (
     <div className="flex flex-col sm:flex-row items-center justify-between bg-[#f9f3eb] p-4 space-y-4 sm:space-y-0">
       {/* Left Section (Filter + View Options + Results Count) */}
@@ -37,7 +34,7 @@ function Filter() {
         </div>
 
         <div className="border-l h-6 hidden sm:block"></div>
-        <span className="text-gray-600">Showing 1-16 of 32 results</span>
+        <span className="text-gray-600">Showing 1-{showCount} of {32} results</span>
       </div>
 
       {/* Right Section (Show Count + Sort Option) */}
@@ -48,7 +45,7 @@ function Filter() {
             type="number"
             className="w-12 p-1 text-center border"
             value={showCount}
-            onChange={(e) => setShowCount(e.target.value)}
+            onChange={(e) => setShowCount(Number(e.target.value))}
           />
         </div>
 

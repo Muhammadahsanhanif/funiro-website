@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // Productvip component
-function Productvip() {
+function Productvip({ showCount, sortOption }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 8; // Set number of products per page
+  const productsPerPage = showCount || 8; // Adjust products per page based on showCount
 
   // Fetch data from the dummy JSON API
   useEffect(() => {
@@ -40,13 +40,20 @@ function Productvip() {
     return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
   };
 
-  // Calculate the current products based on the current page
+  // Sorting logic based on sortOption
+  const sortedProducts = [...products].sort((a, b) => {
+    if (sortOption === "Price: Low to High") return a.price - b.price;
+    if (sortOption === "Price: High to Low") return b.price - a.price;
+    return 0; // Default sorting (no sort)
+  });
+
+  // Calculate the current products based on the current page and showCount
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+  const currentProducts = sortedProducts.slice(indexOfFirstProduct, indexOfLastProduct);
 
   // Calculate total pages
-  const totalPages = Math.ceil(products.length / productsPerPage);
+  const totalPages = Math.ceil(sortedProducts.length / productsPerPage);
 
   return (
     <div className="container mx-auto px-4 py-10">

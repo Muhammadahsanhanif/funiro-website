@@ -1,46 +1,53 @@
-import React, { useState, useEffect } from "react";
-import { db } from "../utils/utils.js"; // Import your Firebase config
-import { collection, getDocs, updateDoc, doc } from "firebase/firestore"; // Firestore functions
+import React, { useEffect, useState } from "react";
+import { db } from "../utils/utils"; // Firebase initialization
+import { collection, updateDoc, doc, onSnapshot } from "firebase/firestore";
 import { Spin } from "antd";
+import { auth } from "../utils/utils"; // Firebase authentication
+import { signOut } from "firebase/auth";
 
-// Admin panel to manage orders
-const AdminPanel = () => {
+function Adminpage() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch orders from Firestore
   useEffect(() => {
-    const fetchOrders = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, "orders"));
-        const ordersData = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setOrders(ordersData);
-      } catch (error) {
-        console.error("Error fetching orders:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+    const ordersRef = collection(db, "orders");
 
-    fetchOrders();
+    // Real-time listener for orders
+    const unsubscribe = onSnapshot(ordersRef, (snapshot) => {
+      const ordersList = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setOrders(ordersList);
+      setLoading(false);
+    });
+
+    // Cleanup the listener when the component unmounts
+    return () => unsubscribe();
   }, []);
 
-  // Update order status in Firestore
-  const handleStatusUpdate = async (orderId, newStatus) => {
+  // Function to update order status
+  const updateOrderStatus = async (orderId, newStatus) => {
+    const orderRef = doc(db, "orders", orderId);
     try {
-      const orderRef = doc(db, "orders", orderId);
-      await updateDoc(orderRef, { status: newStatus });
-      // Update local state after the status is updated in Firestore
-      setOrders((prevOrders) =>
-        prevOrders.map((order) =>
-          order.id === orderId ? { ...order, status: newStatus } : order
-        )
-      );
+      await updateDoc(orderRef, {
+        status: newStatus,
+      });
+      console.log(`Order ${orderId} status updated to ${newStatus}`);
     } catch (error) {
-      console.error("Error updating order status:", error);
+      console.error("Error updating order status: ", error);
+    }
+  };
+
+  // Function to handle logout
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      console.log("Logged out successfully");
+      // Redirect to login page or homepage
+      window.location.href = "/login"; // Replace with your login page URL
+    } catch (error) {
+      console.error("Error logging out: ", error);
     }
   };
 
@@ -53,67 +60,68 @@ const AdminPanel = () => {
   }
 
   return (
-    <div className="p-4">
-      <h2 className="text-2xl text-center font-bold mb-4">Admin Panel - Orders</h2>
-      <table className="min-w-full bg-white rounded-lg shadow-lg overflow-hidden">
-        <thead>
-          <tr className="bg-gray-200">
-            <th className="py-2 px-4">Order ID</th>
-            <th className="py-2 px-4">Customer Name</th>
-            <th className="py-2 px-4">Total Price</th>
-            <th className="py-2 px-4">Status</th>
-            <th className="py-2 px-4">Cart Items</th> {/* Added Cart Items Header */}
-            <th className="py-2 px-4">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orders.map((order) => (
-            <tr key={order.id} className="transition-transform duration-300 hover:scale-105">
-              <td className="border px-4 py-2">{order.id}</td>
-              <td className="border px-4 py-2">{order.userDetails.name}</td>
-              <td className="border px-4 py-2">${order.totalPrice}</td>
-              <td className="border px-4 py-2">{order.status}</td>
-              <td className="border px-4 py-2">
-                {/* Display cart items */}
-                <ul>
-                  {order.cartItems && order.cartItems.length > 0 ? (
-                    order.cartItems.map((item, index) => (
-                      <li key={index} className="transition-colors duration-300 hover:text-blue-600">
-                        {item.name} ( {item.title}) - ${item.price.toFixed(2)}
-                      </li>
-                    ))
-                  ) : (
-                    <li>No items</li>
-                  )}
-                </ul>
-              </td>
-              <td className="border px-4 py-2">
-                {order.status === "pending" ? (
-                  <button
-                    onClick={() => handleStatusUpdate(order.id, "delivered")}
-                    className="bg-green-500 text-white px-4 py-1 rounded transition-colors duration-300 hover:bg-green-600"
-                  >
-                    Mark as Delivered
-                  </button>
-                ) : (
-                  <span className="text-green-600">Delivered</span>
-                )}
-              </td>
+    <div className="p-5 bg-gray-100 border rounded-lg">
+      <h2 className="text-2xl font-bold mb-4 text-center bg-teal-500 text-white py-2 rounded">
+        Admin Order Management
+      </h2>
+      <button
+        className="bg-teal-500 text-white py-2 px-4 rounded mb-4"
+        onClick={handleLogout}
+      >
+        Logout
+      </button>
+      {orders.length === 0 ? (
+        <p>No orders found.</p>
+      ) : (
+        <table className="min-w-full bg-white shadow-md rounded">
+          <thead>
+            <tr className="bg-teal-500 text-white">
+              <th className="py-2 px-4 border-b">Order ID</th>
+              <th className="py-2 px-4 border-b">Customer Name</th>
+              <th className="py-2 px-4 border-b">Items</th>
+              <th className="py-2 px-4 border-b">Total Amount</th>
+              <th className="py-2 px-4 border-b">Status</th>
+              <th className="py-2 px-4 border-b">Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {orders.map((order) => (
+              <tr key={order.id} className="hover:bg-gray-100">
+                <td className="py-2 px-4 border-b">{order.id}</td>
+                <td className="py-2 px-4 border-b">{order.userDetails.name}</td>
+                <td className="py-2 px-4 border-b">
+                  {Array.isArray(order.cartItems) && order.cartItems.length > 0 ? (
+                    <ul>
+                      {order.cartItems.map((item, index) => (
+                        <li key={index}>
+                          {item.title} - {item.quantity} {item.quantity > 1 ? "pcs" : "pc"}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p>No items available</p>
+                  )}
+                </td>
+                <td className="py-2 px-4 border-b">${order.totalPrice}</td>
+                <td className="py-2 px-4 border-b">{order.status}</td>
+                <td className="py-2 px-4 border-b">
+                  <select
+                    value={order.status}
+                    onChange={(e) => updateOrderStatus(order.id, e.target.value)}
+                    className="border p-2 rounded focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                  >
+                    <option value="In Progress">In Progress</option>
+                    <option value="On Way">On Way</option>
+                    <option value="Delivered">Delivered</option>
+                  </select>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
-};
+}
 
-// Admin page component that directly shows the admin panel
-const AdminPage = () => {
-  return (
-    <div className="min-h-screen bg-gray-100">
-      <AdminPanel />
-    </div>
-  );
-};
-
-export default AdminPage;
+export default Adminpage;
