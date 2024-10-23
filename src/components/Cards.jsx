@@ -77,7 +77,7 @@ const furnitureProducts = [
 
 function Cards() {
   return (
-    <section className="text-gray-600 body-font">
+    <section className="text-teal-500 body-font">
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-wrap -m-4">
           {furnitureProducts.map((product) => (
@@ -92,15 +92,15 @@ function Cards() {
                   src={product.image}
                 />
                 {/* Hover effect starts here */}
-                <div className="absolute inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute inset-0 text-teal-500 bg-opacity-50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity">
                   <div className="flex flex-col items-center">
                     <button
-                      style={{ color: "#b88e2f" }}
+                      style={{ color: "#38B2A0" }}
                       className="bg-white px-4 py-2 font-bold mb-2"
                     >
                       Add to cart
                     </button>
-                    <div className="flex" style={{ color: "white" }}>
+                    <div className="flex" style={{ color: "#38B2A0" }}>
                       <ShareAltOutlined style={{ marginRight: 10 }} />
                       <span style={{ marginRight: 10 }}>Share</span>
                       <SwapOutlined style={{ marginRight: 10 }} />
@@ -112,10 +112,10 @@ function Cards() {
                 </div>
               </div>
               <div className="mt-4">
-                <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
+                <h3 className="text-teal-500 text-xs tracking-widest title-font mb-1">
                   {product.category}
                 </h3>
-                <h2 className="text-gray-900 title-font text-lg font-medium">
+                <h2 className="text-teal-500 title-font text-lg font-medium">
                   {product.name}
                 </h2>
                 <p className="mt-1">{product.price}</p>

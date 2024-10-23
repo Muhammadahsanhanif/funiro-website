@@ -5,7 +5,7 @@ import image3  from '../assets/pics/image 101.png';
 
 function Hero() {
   return (
-    <section className="text-gray-600 body-font">
+    <section className="text-teal-500 body-font">
       <div className="container px-5 py-24 mx-auto">
         <div className="flex flex-col">
         </div>  
@@ -18,7 +18,7 @@ function Hero() {
                 src={image1}
               />
             </div>
-            <h2 className="text-4xl text-center font-medium title-font text-gray-900 mt-5">
+            <h2 className="text-4xl text-center font-medium title-fonttext text-teal-500 mt-5">
               Dining
             </h2>
           </div>
@@ -30,7 +30,7 @@ function Hero() {
                 src={image2}
               />
             </div>
-            <h2 className="text-4xl text-center font-medium title-font text-gray-900 mt-5">
+            <h2 className="text-4xl text-center font-medium title-font text-teal-500 mt-5">
               Living
             </h2>
           </div>
@@ -42,7 +42,7 @@ function Hero() {
                 src={image3}
               />
             </div>
-            <h2 className="text-4xl text-center font-medium title-font text-gray-900 mt-5">
+            <h2 className="text-4xl text-center font-medium title-font text-teal-500 mt-5">
               Bedroom
             </h2>
           </div>

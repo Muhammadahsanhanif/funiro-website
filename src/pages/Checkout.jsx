@@ -260,30 +260,33 @@ function CheckoutPage() {
           </div>
 
           {/* Right side: Order Summary */}
-          <div className="w-full lg:w-1/2 px-4">
-            <div style={{ backgroundColor: "#f9f1e7" }} className="p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4">Order Summary</h3>
-              {cartItems.map((item) => (
-                <div key={item.id} className="flex justify-between mb-2">
-                  <span>
-                    {item.title} (x{item.quantity})
-                  </span>
-                  <span>${(item.price * item.quantity).toFixed(2)}</span>
-                </div>
-              ))}
-              <h4 className="font-semibold">
-                Total Price: ${calculateTotalPrice()}
-              </h4>
-              <div className="text-center mt-8">
-                <button
-                  onClick={handleCheckout}
-                  className="text-black w-64 py-2 px-4 rounded-xl mt-4 transition-colors border border-black"
-                >
-                  Place Order
-                </button>
-              </div>
-            </div>
-          </div>
+          // Inside the cart summary where you're displaying items
+<div style={{ backgroundColor: "#f9f1e7" }} className="p-6 rounded-lg">
+  <h3 className="text-xl font-semibold mb-4">Order Summary</h3>
+  <div className="mb-2">
+    <span>User: {userDetails.name}</span>
+  </div>
+  {cartItems.map((item) => (
+    <div key={item.id} className="flex justify-between mb-2">
+      <span>
+        {item.title} (x{item.quantity})
+      </span>
+      <span>${(item.price * item.quantity).toFixed(2)}</span>
+    </div>
+  ))}
+  <h4 className="font-semibold">
+    Total Price: ${calculateTotalPrice()}
+  </h4>
+  <div className="text-center mt-8">
+    <button
+      onClick={handleCheckout}
+      className="text-black w-64 py-2 px-4 rounded-xl mt-4 transition-colors border border-black"
+    >
+      Place Order
+    </button>
+  </div>
+</div>
+
         </div>
 
         <Benefits />

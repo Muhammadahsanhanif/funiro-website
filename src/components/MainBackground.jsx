@@ -30,16 +30,16 @@ function BackgroundImage(){
             width: "500px",
           }}
         >
-          <div className="px-8 py-4 ">
+          <div className="px-8 py-4 text-teal-500 ">
             New Arrival
             <br />
-            <span style={{ color: "#B88E2F" }} className="text-4xl">
+            <span  className="text-4xl text-teal-500">
               Discover Our
               <br />
               New Collection
             </span>
             <br />
-            <span className="text-sm leading-3">
+            <span className="text-sm leading-3 text-teal-500">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam
               sapiente laudantium culpa hic laborum.
             </span>
@@ -47,7 +47,7 @@ function BackgroundImage(){
             <br />
             <button
               style={{
-                backgroundColor: "#B88E2F",
+                backgroundColor: "#38B2A0",
                 color: "white",
                 padding: "10px",
               }}

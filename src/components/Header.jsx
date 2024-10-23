@@ -55,7 +55,7 @@ function Header() {
               alt="Furniro Logo"
               className="w-10 h-10 p-2 rounded-full"
             />
-            <span className="ml-2 font-bold text-2xl">Furniro</span>
+            <span className="ml-2 font-bold text-2xl  text-teal-500">CHAMPIONS</span>
           </a>
 
           <button
@@ -72,16 +72,16 @@ function Header() {
           } md:flex md:items-center space-x-6 font-bold gap-4 mt-4 md:mt-0`}
         >
           <nav className="flex flex-col  md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-8">
-            <Link to="/" className="hover:text-gray-900">
+            <Link to="/" className=" text-teal-500">
               Home
             </Link>
-            <Link to="/shop" className="hover:text-teal-500">
+            <Link to="/shop" className="text-teal-500">
               Shop
             </Link>
-            <Link to="/about" className="hover:text-teal-500">
+            <Link to="/about" className="text-teal-500">
               About
             </Link>
-            <Link to="/contact" className="hover:text-teal-500">
+            <Link to="/contact" className="text-teal-500">
               Contact
             </Link>
           </nav>
@@ -89,7 +89,7 @@ function Header() {
           <div className="flex space-x-4 mt-4 md:mt-0">
             {!isLoggedIn ? (
               <>
-                <Link to="/login" className="hover:text-teal-500">
+                <Link to="/login" className="text-teal-500">
                   <Button
                     style={{ backgroundColor: "#3B82F6", color: "white" }}
                   >
@@ -108,7 +108,7 @@ function Header() {
               <>
                 <div className="relative">
                   <button onClick={toggleProfileDropdown}>
-                    <UserOutlined />
+                    <UserOutlined  className=" text-teal-500"/>
                   </button>
                   {showProfileDropdown && (
                     <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-72 bg-white shadow-lg rounded-md p-4 z-50">
@@ -134,10 +134,10 @@ function Header() {
                   )}
                 </div>
                 <Link to="/Wishlist">
-                  <HeartOutlined />
+                  <HeartOutlined  className=" text-teal-500" />
                 </Link>
                 <Link to="/Cart" className="relative">
-                  <ShoppingCartOutlined />
+                  <ShoppingCartOutlined  className=" text-teal-500" />
                 </Link>
               </>
             )}

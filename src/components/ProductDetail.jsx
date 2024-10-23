@@ -156,23 +156,23 @@ function ProductDetail() {
             transition={{ duration: 0.5 }}
           />
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-            <h2 className="text-sm title-font text-gray-500 tracking-widest">
+            <h2 className="text-sm title-font text-teal-500 tracking-widest">
               {product.category}
             </h2>
-            <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
+            <h1 className="text-teal-500 text-3xl title-font font-medium mb-1">
               {product.title}
             </h1>
-            <p className="leading-relaxed">{product.description}</p>
+            <p className="leading-relaxed text-teal-500">{product.description}</p>
             <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-100 mb-5">
               <span className="mr-3">Price:</span>
-              <span className="title-font font-medium text-2xl text-gray-900">
+              <span className="title-font font-medium text-2xl text-teal-500">
                 ${product.price}
               </span>
             </div>
             <div className="flex">
               {isInCart ? (
                 <motion.button
-                  className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
+                  className="flex ml-auto text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -181,7 +181,7 @@ function ProductDetail() {
               ) : (
                 <motion.button
                   onClick={addToCart}
-                  className="flex ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded"
+                  className="flex ml-auto text-white bg-teal-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
