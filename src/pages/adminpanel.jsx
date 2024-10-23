@@ -245,7 +245,7 @@ function Adminpage() {
                     {users.map((user) => (
                       <tr key={user.id} className="hover:bg-gray-100">
                         <td className="py-4 px-6 border-b">{user.id}</td>
-                        <td className="py-4 px-6 border-b">{user.name}</td>
+                        <td className="py-4 px-6 border-b">{user.username}</td>
                         <td className="py-4 px-6 border-b">{user.email}</td>
                       </tr>
                     ))}
