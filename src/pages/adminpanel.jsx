@@ -136,15 +136,15 @@ function Adminpage() {
             <h2 className="text-3xl font-semibold mb-6">Dashboard Overview</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Dashboard Cards */}
-              <div className="bg-white shadow-lg p-6 rounded-xl">
+              <div className="bg-green-500 shadow-lg p-6 rounded-xl">
                 <h3 className="text-lg font-semibold">Total Orders</h3>
                 <p className="mt-4 text-2xl">{orders.length}</p>
               </div>
-              <div className="bg-white shadow-lg p-6 rounded-xl">
+              <div className="bg-purple-500 shadow-lg p-6 rounded-xl">
                 <h3 className="text-lg font-semibold">Total Revenue</h3>
                 <p className="mt-4 text-2xl">${totalRevenue.toFixed(2)}</p>
               </div>
-              <div className="bg-white shadow-lg p-6 rounded-xl">
+              <div className="bg-orange-400 shadow-lg p-6 rounded-xl">
                 <h3 className="text-lg font-semibold">Total Users</h3>
                 <p className="mt-4 text-2xl">{users.length}</p>
               </div>
