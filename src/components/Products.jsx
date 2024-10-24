@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // Productvip component
-function Productvip({ showCount, sortOption }) {
+function Productvip() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = showCount || 8; // Adjust products per page based on showCount
+  const productsPerPage = 8; // Set number of products per page
 
   // Fetch data from the dummy JSON API
   useEffect(() => {
@@ -29,7 +29,7 @@ function Productvip({ showCount, sortOption }) {
   // Show loading indicator while fetching
   if (loading) {
     return (
-      <div className="min-h-screen flex justify-center items-center text-teal-500">
+      <div className="min-h-screen flex justify-center items-center">
         <Spin size="large" />
       </div>
     );
@@ -40,24 +40,17 @@ function Productvip({ showCount, sortOption }) {
     return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
   };
 
-  // Sorting logic based on sortOption
-  const sortedProducts = [...products].sort((a, b) => {
-    if (sortOption === "Price: Low to High") return a.price - b.price;
-    if (sortOption === "Price: High to Low") return b.price - a.price;
-    return 0; // Default sorting (no sort)
-  });
-
-  // Calculate the current products based on the current page and showCount
+  // Calculate the current products based on the current page
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = sortedProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+  const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
 
   // Calculate total pages
-  const totalPages = Math.ceil(sortedProducts.length / productsPerPage);
+  const totalPages = Math.ceil(products.length / productsPerPage);
 
   return (
     <div className="container mx-auto px-4 py-10">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 text-teal-500">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {currentProducts.map((product, index) => (
           <Link
             to={`/product/${product.id}`}
@@ -67,15 +60,15 @@ function Productvip({ showCount, sortOption }) {
             <img
               src={product.image}
               alt={product.title}
-              className="w-full h-48 object-cover rounded-md mb-4 text-teal-500"
+              className="w-full h-48 object-cover rounded-md mb-4"
             />
-            <h2 className="text-lg font-semibold mb-2 ">{product.title}</h2>
-            <p className="text-teal-500">
+            <h2 className="text-lg font-semibold mb-2">{product.title}</h2>
+            <p className="text-gray-600">
               {truncateText(product.description, 100)} {/* Limit description to 100 characters */}
             </p>
-            <p className="text-red-500 font-bold  bg-teal-500">${product.price}</p>
+            <p className="text-red-500 font-bold">${product.price}</p>
             {product.rating && (
-              <p className="text-green-500  ">Rating: {product.rating.rate}</p>
+              <p className="text-green-500">Rating: {product.rating.rate}</p>
             )}
           </Link>
         ))}
@@ -88,7 +81,7 @@ function Productvip({ showCount, sortOption }) {
             key={index + 1}
             onClick={() => setCurrentPage(index + 1)}
             className={`mx-1 px-3 py-2 border rounded ${
-              currentPage === index + 1 ? " bg-teal-500 text-white" : "bg-white text-black"
+              currentPage === index + 1 ? "bg-blue-500 text-white" : "bg-white text-black"
             }`}
           >
             {index + 1}
