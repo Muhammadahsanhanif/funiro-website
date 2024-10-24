@@ -55,7 +55,7 @@ function Header() {
               alt="Furniro Logo"
               className="w-10 h-10 p-2 rounded-full"
             />
-            <span className="ml-2 font-bold text-2xl  text-teal-500">CHAMPIONS</span>
+            <span className="ml-2 font-bold text-2xl  text-teal-500">ALL IN ONE</span>
           </a>
 
           <button
