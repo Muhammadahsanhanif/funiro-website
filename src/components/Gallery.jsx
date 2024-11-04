@@ -1,11 +1,3 @@
-// import image1 from "../assets/pics/Rectangle 38.png";
-// import image2 from "../assets/pics/Rectangle 39.png";
-// import image3 from "../assets/pics/Rectangle 40.png";
-// import image4 from "../assets/pics/Rectangle 41.png";
-// import image5 from "../assets/pics/Rectangle 43.png";
-// import image6 from "../assets/pics/Rectangle 44.png";
-// import image7 from "../assets/pics/Rectangle 45.png";
-// import image8 from "../assets/pics/Rectangle 68 (1).jpg";
 
 function Gallery() {
   return (

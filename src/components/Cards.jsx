@@ -1,13 +1,3 @@
-import React from "react";
-import image1 from "../assets/pics/image 1 (5).png";
-import image2 from "../assets/pics/image 2.png";
-import image3 from "../assets/pics/image 3.png";
-import image4 from "../assets/pics/image 4 (1).jpg";
-import image5 from "../assets/pics/image 9 (1).png";
-import image6 from "../assets/pics/image 6 (4).png";
-import image7 from "../assets/pics/image 7.jpg";
-import image8 from "../assets/pics/image 8.jpg";
-import { Button } from "antd";
 import {
   HeartOutlined,
   LikeOutlined,
@@ -16,63 +6,38 @@ import {
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 
-const furnitureProducts = [
+ 
+ 
+ const furnitureProducts = [
   {
     id: 1,
     name: "Syltherine",
     category: "Chair",
     price: "$16.00",
-    image: image1,
+    img: "https://plus.unsplash.com/premium_photo-1674828601362-afb73c907ebe?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8amVhbnN8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 2,
     name: "Leviosa",
     category: "Chair",
     price: "$21.15",
-    image: image2,
+    img: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8amVhbnN8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 3,
-    name: "Lolito",
-    category: "Sofa",
-    price: "$12.00",
-    image: image3,
+    name: "Syltherine",
+    category: "Chair",
+    price: "$16.00",
+    img: "https://images.unsplash.com/photo-1499713907394-43c9d094ac2e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHQlMjBzaGlydHxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 4,
-    name: "Respira",
-    category: "Desk",
-    price: "$18.40",
-    image: image4,
-  },
-  {
-    id: 5,
-    name: "Grifo",
+    name: "Leviosa",
     category: "Chair",
-    price: "$16.00",
-    image: image5,
-  },
-  {
-    id: 6,
-    name: "Muggo",
-    category: "Table",
     price: "$21.15",
-    image: image6,
+    img: "https://images.unsplash.com/photo-1521330784804-5f69f8a17b1d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHQlMjBzaGlydHxlbnwwfHwwfHx8MA%3D%3D"
   },
-  {
-    id: 7,
-    name: "Pingky",
-    category: "Sofa",
-    price: "$12.00",
-    image: image7,
-  },
-  {
-    id: 8,
-    name: "Potty",
-    category: "Desk",
-    price: "$18.40",
-    image: image8,
-  },
+  // Add the rest of your products here, following the same format.
 ];
 
 function Cards() {
@@ -89,9 +54,8 @@ function Cards() {
                 <img
                   alt="ecommerce"
                   className="object-cover object-center w-full h-full block"
-                  src={product.image}
+                  src={product.img}
                 />
-                {/* Hover effect starts here */}
                 <div className="absolute inset-0 text-teal-500 bg-opacity-50 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity">
                   <div className="flex flex-col items-center">
                     <button
@@ -124,13 +88,13 @@ function Cards() {
           ))}
         </div>
         <div className="text-center">
-        <Link to={"/Shop"}>
-          <button
-            style={{ borderColor: "teal-500", color: "teal-500" }}
-            className="m-auto mt-9 bg-white px-6 py-2 border w-60 font-bold"
-          >
-            Show More
-          </button>
+          <Link to={"/Shop"}>
+            <button
+              style={{ borderColor: "teal-500", color: "teal-500" }}
+              className="m-auto mt-9 bg-white px-6 py-2 border w-60 font-bold"
+            >
+              Show More
+            </button>
           </Link>
         </div>
       </div>

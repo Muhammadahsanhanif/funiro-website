@@ -11,7 +11,6 @@ import {
   updateDoc,
 } from "firebase/firestore"; // Firestore functions
 import { motion, AnimatePresence } from "framer-motion"; // Import Framer Motion
-import Footer from "../components/Footer.jsx";
 import backgroundImage from "../assets/pics/Rectangle 1.jpg";
 import { Link } from "react-router-dom";
 import { DeleteFilled, DeleteOutlined } from "@ant-design/icons";
